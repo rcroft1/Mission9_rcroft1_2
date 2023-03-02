@@ -6,6 +6,8 @@
 
 <h1>Books</h1>
 
+@*this gives us our output on the main page*@
+
 @foreach(Book b in Model.Books)
 {
     <h3>@b.Title</h3>
@@ -20,5 +22,7 @@
     </ul>
     <br />
 }
+
+@*links at the bottom of the page*@
 
 <div page-book="@Model.BookInfo" page-action="Index"></div>

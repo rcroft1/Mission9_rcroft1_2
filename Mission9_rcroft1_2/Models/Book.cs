@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mission9_rcroft1_2.Models
 {
+    // initializing the book class and its variables
     public partial class Book
     {
         [Key][Required]

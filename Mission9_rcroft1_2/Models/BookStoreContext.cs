@@ -17,9 +17,10 @@ namespace Mission9_rcroft1_2.Models
         public BookStoreContext(DbContextOptions<BookStoreContext> options)
             : base(options)
         {
+            // makes sure that the database is made
             Database.EnsureCreated();
         }
-
+        // constructor
         public virtual DbSet<Book> Books { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -27,6 +28,8 @@ namespace Mission9_rcroft1_2.Models
             if (!optionsBuilder.IsConfigured)
             {
             //# warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                
+                //helps connect to the database
                 optionsBuilder.UseSqlite("Data Source = Bookstore.sqlite");
             }
         }

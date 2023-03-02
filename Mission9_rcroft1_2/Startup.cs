@@ -32,6 +32,8 @@ namespace Mission9_rcroft1_2
 
             services.AddDbContext<BookStoreContext>(options =>
             {
+
+                // connectionStrings
                 options.UseSqlite(Configuration["ConnectionStrings:BookDBConnection"]);
 
             });

@@ -24,6 +24,9 @@ namespace Mission9_rcroft1_2.Infrastructure
         public ViewContext vc { get; set; }
         public BookInfo PageBook { get; set; }
         public string PageAction { get; set; }
+
+        // this handles pagination
+
         public override void Process(TagHelperContext thc, TagHelperOutput tho)
         {
             IUrlHelper uh = uhf.GetUrlHelper(vc);

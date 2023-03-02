@@ -26,6 +26,8 @@ namespace Mission9_rcroft1_2.Controllers
 
             var x = new BookStoreViewModel
             {
+                // assings the title and calculates the size of pages and books and such
+
                 Books = repo.Books
                 .OrderBy(b => b.Title)
                 .Skip((PageBook - 1) * pageSize)

@@ -14,6 +14,7 @@ namespace Mission9_rcroft1_2.Models
             context = temp;
         }
 
+        // this is type IQueryable not list
         public IQueryable<Book> Books => context.Books;
     }
 }
