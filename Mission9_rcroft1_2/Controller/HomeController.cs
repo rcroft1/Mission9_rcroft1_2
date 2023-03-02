@@ -20,7 +20,7 @@ namespace Mission9_rcroft1_2.Controllers
             repo = temp;
         }
 
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(int PageBook = 1)
         {
             int pageSize = 10;
 
@@ -28,14 +28,14 @@ namespace Mission9_rcroft1_2.Controllers
             {
                 Books = repo.Books
                 .OrderBy(b => b.Title)
-                .Skip((pageNum - 1) * pageSize)
+                .Skip((PageBook - 1) * pageSize)
                 .Take(pageSize),
 
                 BookInfo = new BookInfo
                 {
                     TotalNumBooks = repo.Books.Count(),
                     BooksPerPage = pageSize,
-                    CurrentPage = pageNum
+                    CurrentPage = PageBook
                 }
             };
             return View(x);
