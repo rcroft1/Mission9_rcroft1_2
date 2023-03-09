@@ -1,0 +1,37 @@
+﻿@{
+}
+
+@model Book
+
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
+        <h3>
+            @Model.Title
+            <span class="badge badge-pill badge-primary" style="float:right">
+                <small>@Model.Price.ToString("c")</small>
+            </span>
+        </h3>
+        <div class="card-text p-1">
+            <ul>
+                <li>Author: @Model.Author</li>
+                <li>Publisher: @Model.Publisher</li>
+                <li>ISBN: @Model.Isbn</li>
+                <li>Classification: @Model.Classification</li>
+                <li>Category: @Model.Category</li>
+                <li>Number of Pages: @Model.PageCount</li>
+                <li>Price: @Model.Price</li>
+            </ul>
+
+            <form method="post" asp-page="/AddBook">
+
+                <input type="hidden" asp-for="@Model.BookID" />
+
+                @*here is one of my added CSS elements.. i did btn-outline-info... it makes the button white with a blue outline then it turns blue when you hover over it. It is very visually pleasing*@
+
+                <span class="card-text">
+                    <button type="submit" class="btn btn-outline-info" style="float:right" value="b.BookID">Add Book</button>
+                </span>
+            </form>
+        </div>
+    </div>
+</div>

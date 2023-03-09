@@ -38,12 +38,12 @@ namespace Mission9_rcroft1_2.Models
         {
             modelBuilder.Entity<Book>(entity =>
             {
-                entity.HasKey(e => e.BookId);
+                entity.HasKey(e => e.BookID);
 
-                entity.HasIndex(e => e.BookId)
+                entity.HasIndex(e => e.BookID)
                     .IsUnique();
 
-                entity.Property(e => e.BookId)
+                entity.Property(e => e.BookID)
                     .HasColumnName("BookID")
                     .ValueGeneratedNever();
 

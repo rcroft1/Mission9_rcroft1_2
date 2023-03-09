@@ -1,0 +1,44 @@
+﻿@page
+@model Mission9_rcroft1_2.Pages.AddBookModel
+@{
+}
+
+<h2>Your Cart</h2>
+
+@*this builds out the table for the shopping cart*@
+@*here is an added CSS element... it is table-hover. When you hover over an element in the table, it highlights the element*@
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var i in Model.basket.Items)
+            {
+                <tr>
+                    <td>@i.Book.Title</td>
+                    <td>@i.Quantity</td>
+                    <td>@i.Book.Price</td>
+                    <td>@(i.Quantity * i.Book.Price)</td>
+                </tr>
+            }
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3">Total:</td>
+            <td>@Model.basket.CalculateTotal().ToString("c")</td>
+        </tr>
+    </tfoot>
+
+</table>
+
+@*link to homepage*@
+
+<a href="/Page1" class="btn btn-outline-secondary">Continue Shopping</a>

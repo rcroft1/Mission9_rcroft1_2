@@ -39,6 +39,11 @@ namespace Mission9_rcroft1_2
             });
 
             services.AddScoped<IBookStoreRepository, EFBookStoreRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,11 +56,29 @@ namespace Mission9_rcroft1_2
 
             app.UseStaticFiles();  // tells it to use wwwroot
 
+            app.UseSession(); //makes it use sessions for the basket
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    "typepage", "{bookType}/Page{pageBook}",
+                    new {Controller = "Home", action = "Index"}
+                    );
+
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "Page{pageBook}",
+                    defaults: new { Controller = "Home", action = "Index", pageBook = 1 });
+
+                endpoints.MapControllerRoute("type",
+                "{bookType}",
+                new { Controller = "Home", action = "Index", pageBook = 1 });
+                
                 endpoints.MapDefaultControllerRoute(); // routes to controller and url stuff
+
+                endpoints.MapRazorPages();
             });
         }
     }

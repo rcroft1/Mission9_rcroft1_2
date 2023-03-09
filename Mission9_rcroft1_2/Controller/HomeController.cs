@@ -20,7 +20,7 @@ namespace Mission9_rcroft1_2.Controllers
             repo = temp;
         }
 
-        public IActionResult Index(int PageBook = 1)
+        public IActionResult Index(string bookType, int PageBook = 1)
         {
             int pageSize = 10;
 
@@ -29,13 +29,16 @@ namespace Mission9_rcroft1_2.Controllers
                 // assings the title and calculates the size of pages and books and such
 
                 Books = repo.Books
+                .Where(c => c.Category == bookType || bookType == null)
                 .OrderBy(b => b.Title)
                 .Skip((PageBook - 1) * pageSize)
                 .Take(pageSize),
 
                 BookInfo = new BookInfo
                 {
-                    TotalNumBooks = repo.Books.Count(),
+                    TotalNumBooks = (bookType == null
+                    ? repo.Books.Count()
+                    : repo.Books.Where(x => x.Category == bookType).Count()),
                     BooksPerPage = pageSize,
                     CurrentPage = PageBook
                 }

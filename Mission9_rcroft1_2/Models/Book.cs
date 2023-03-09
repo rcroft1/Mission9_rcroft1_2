@@ -12,7 +12,7 @@ namespace Mission9_rcroft1_2.Models
     public partial class Book
     {
         [Key][Required]
-        public long BookId { get; set; }
+        public int BookID { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
