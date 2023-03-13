@@ -9,7 +9,7 @@ namespace Mission9_rcroft1_2.Models
     {
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
 
-        public void AddItem(Book Book1, int qty)
+        public virtual void AddItem(Book Book1, int qty)
         {
             BasketLineItem line = Items
                 .Where(b => b.Book.BookID == Book1.BookID)
@@ -28,6 +28,17 @@ namespace Mission9_rcroft1_2.Models
                 line.Quantity += qty;
             }
         }
+
+        public virtual void RemoveItem (Book book1)
+        {
+            Items.RemoveAll(x => x.Book.BookID == book1.BookID);
+        }
+
+        public virtual void ClearBasket()
+        {
+            Items.Clear();
+        }
+
         public double CalculateTotal()
         {
             double sum = Items.Sum(x => x.Quantity * x.Book.Price);
@@ -35,8 +46,6 @@ namespace Mission9_rcroft1_2.Models
             return sum;
         }
     }
-
-    
 
     public class BasketLineItem
     {

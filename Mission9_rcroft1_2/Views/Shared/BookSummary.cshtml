@@ -25,6 +25,7 @@
             <form method="post" asp-page="/AddBook">
 
                 <input type="hidden" asp-for="@Model.BookID" />
+                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
 
                 @*here is one of my added CSS elements.. i did btn-outline-info... it makes the button white with a blue outline then it turns blue when you hover over it. It is very visually pleasing*@
 
