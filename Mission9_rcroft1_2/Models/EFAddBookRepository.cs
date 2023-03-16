@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mission9_rcroft1_2.Models
 {
+    // making a new repo for the purchases
     public class EFAddBookRepository : IAddBookRepository
     {
         private BookStoreContext context;

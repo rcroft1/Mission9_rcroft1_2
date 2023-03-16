@@ -9,6 +9,7 @@ namespace Mission9_rcroft1_2.Models
 {
     public class AddBook
     {
+        // making all the variables and such that are needed to checkout
         [Key]
         [BindNever]
         public int PurchaseId { get; set; }

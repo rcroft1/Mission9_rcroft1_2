@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mission9_rcroft1_2.Components
 {
+    // makes the cart at the top of the page
     public class CartsViewComponent : ViewComponent
     {
         private Basket cart;

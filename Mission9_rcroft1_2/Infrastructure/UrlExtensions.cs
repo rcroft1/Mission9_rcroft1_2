@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mission9_rcroft1_2.Infrastructure
 {
+    // this helps make the return url
     public static class UrlExtensions
     {
         public static string PathAndQuery(this HttpRequest request) =>

@@ -8,6 +8,7 @@ namespace Mission9_rcroft1_2.Models
 {
     public class Basket
     {
+        // making a list of the line items in a basket
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
 
         public virtual void AddItem(Book Book1, int qty)
@@ -29,7 +30,7 @@ namespace Mission9_rcroft1_2.Models
                 line.Quantity += qty;
             }
         }
-
+        // methods to remove/clear basket and calculate the total price
         public virtual void RemoveItem (Book book1)
         {
             Items.RemoveAll(x => x.Book.BookID == book1.BookID);
