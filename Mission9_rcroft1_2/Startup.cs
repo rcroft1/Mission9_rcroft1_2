@@ -39,6 +39,7 @@ namespace Mission9_rcroft1_2
             });
 
             services.AddScoped<IBookStoreRepository, EFBookStoreRepository>();
+            services.AddScoped<IAddBookRepository, EFAddBookRepository>();
 
             services.AddRazorPages();
 

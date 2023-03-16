@@ -22,6 +22,7 @@ namespace Mission9_rcroft1_2.Models
         }
         // constructor
         public virtual DbSet<Book> Books { get; set; }
+        public DbSet<AddBook> AddBooks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

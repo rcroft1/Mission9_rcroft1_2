@@ -48,5 +48,7 @@
 </table>
 
 @*link to homepage*@
-
-<a href="@Model.ReturnUrl" class="btn btn-outline-secondary">Continue Shopping</a>
+<div>
+    <a href="@Model.ReturnUrl" class="btn btn-outline-secondary">Continue Shopping</a>
+    <a class="btn btn-outline-secondary" asp-controller="Checkout" asp-action="Checkout" >Checkout</a>
+</div>

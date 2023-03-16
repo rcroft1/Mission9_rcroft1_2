@@ -11,6 +11,7 @@ namespace Mission9_rcroft1_2.Models
     // initializing the book class and its variables
     public partial class Book
     {
+        public static int Bookid { get; internal set; }
         [Key][Required]
         public int BookID { get; set; }
         [Required]
